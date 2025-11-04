@@ -34,9 +34,6 @@ const ratings = [
     },
 ];
 
-const [open, setOpen] = useState(false);
-const navigate = useNavigate();
-
 const styles = {
     root: {
         marginTop: 2,
@@ -65,9 +62,11 @@ const styles = {
 };
 
 const ReviewForm = ({ movie }) => {
+
     const context = useContext(MoviesContext);
     const [rating, setRating] = useState(3);
-
+    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
     const defaultValues = {
         author: "",
         review: "",
@@ -89,11 +88,10 @@ const ReviewForm = ({ movie }) => {
     const onSubmit = (review) => {
         review.movieId = movie.id;
         review.rating = rating;
-        // console.log(review);
+        console.log(review);
         context.addReview(movie, review);
         setOpen(true); // NEW
     };
-
 
     const handleSnackClose = (event) => {
         setOpen(false);

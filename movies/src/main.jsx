@@ -1,4 +1,5 @@
 import React from "react";
+import MovieReviewPage from "./pages/movieReviewPage";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
@@ -18,6 +19,7 @@ const App = () => {
       </ul>
       <Routes>
         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Navigate to="/" />} />
